@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/register', userCtrl.registerUser);
 router.post('/login', userCtrl.loginUser);
+router.post('/getuser', userCtrl.getUserDetails);
 router.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close`});
 })

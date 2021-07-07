@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema({
+    proPic: {
+        type: String
+    },
     fullName: {
         type: String
     },
@@ -36,6 +39,21 @@ var UserSchema = new mongoose.Schema({
         trim: true
     },
     role: {
+        type: String
+    },
+    subject: {
+        type: String
+    },
+    extraQ: {
+        type: String
+    },
+    prodetail: {
+        type: String
+    },
+    payMethod: {
+        type: String
+    },
+    bnum: {
         type: String
     }
 })

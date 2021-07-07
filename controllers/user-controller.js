@@ -8,7 +8,8 @@ function createToken(user) {
     })
 }
 
-exports.registerUser = (req, res) => {
+exports.registerUser = async (req, res) => {
+    console.log("register triggerd")
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({ 'msg': 'You need to send email and password' });
     }
@@ -19,7 +20,7 @@ exports.registerUser = (req, res) => {
         }
 
         if (user) {
-            return res.status(400).json({ 'msg': 'The user already exixts' })
+            return res.status(400).json({ 'msg': 'The user already exists' })
         }
 
         let newUser = User(req.body);
@@ -57,3 +58,14 @@ exports.loginUser = (req, res) => {
         })
     })
 };
+
+exports.getUserDetails = (req, res) => {
+    console.log('get user triggerd')
+    User.findOne({ email: req.body.email }, (err, user) => {
+        if (err) {
+            return res.status(400).json({ 'msg': err });
+        }
+
+        return res.status(200).json({ 'data': user });
+    })
+}
