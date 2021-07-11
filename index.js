@@ -12,15 +12,15 @@ var config = require('./config/config');
 var app = express();
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json({ limit: '50mb' }));
 app.use(passport.initialize());
 
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
 
 app.get('/', function (req, res) {
-  return res.send('hello')
+  return res.send('404')
 });
 
 app.use('/api', routes);
