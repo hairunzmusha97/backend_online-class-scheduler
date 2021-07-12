@@ -3,6 +3,7 @@ var router = express.Router()
 var serviceCtrl = require('../controllers/service.controller.js')
 var userCtrl = require('../controllers/user-controller');
 var passport = require('passport')
+var calendarcontroller = require('../controllers/calendar.controller')
 
 
 router.get('/', (req, res) => {
@@ -22,4 +23,6 @@ router.post('/service', function (req, res) {
     res.json({ "success": true, "data": response });
 })
 
+
+router.post('/calendar', calendarcontroller.savecalendarDetails)
 module.exports = router
