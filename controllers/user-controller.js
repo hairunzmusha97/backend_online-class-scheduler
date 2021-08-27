@@ -65,7 +65,6 @@ exports.getUserDetails = (req, res) => {
         if (err) {
             return res.status(400).json({ 'msg': err });
         }
-
         return res.status(200).json({ 'data': user });
     })
 }
