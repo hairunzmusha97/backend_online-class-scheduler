@@ -6,7 +6,7 @@ exports.savecalendarDetails = (req, res) => {
     req.body.event.discription=req.body.event.desc;
     let calendar=Calendar(req.body.event);//what's happening here
     calendar.save().then(item => {
-        console.log(item);
+        console.log(item);//what's happening here
     })
     
 }
